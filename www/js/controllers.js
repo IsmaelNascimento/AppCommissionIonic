@@ -45,10 +45,24 @@ angular.module('starter.controllers', [])
   $scope.monthlyGoal;
   $scope.workedDays;
   $scope.sellPerDay = 0;
+  $scope.goal = 0;
+  $scope.percentageCommission = 0;
+  $scope.commissionWon = 0;
+
+
 
   $scope.SellPerDay = function(monthlyGoal, workedDays){
     $scope.sellPerDay = monthlyGoal / workedDays;
   };
+
+  $scope.SumValues = function(saleValue, percentageCommission){
+    $scope.goal += saleValue;
+
+    $scope.commissionWon += (saleValue * percentageCommission) / 100;
+    console.log($scope.commissionWon);
+  };
+
+
   
   
   

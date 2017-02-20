@@ -1,5 +1,17 @@
-<ion-view view-title="Playlists">
-  <ion-content>
-    
+<ion-view view-title="Login" >
+  <ion-content ng-controller="PlaylistsCtrl">
+    <div class="list">
+	  <label class="item item-input item-stacked-label">
+	    <span class="input-label">Username</span>
+	    <input type="text" placeholder="JohnNasc">
+	  </label>
+	  <label class="item item-input item-stacked-label">
+	    <span class="input-label">Email</span>
+	    <input type="text" placeholder="john@suhr.com">
+	  </label>
+	  <button ng-click="MenuCheck()" class="button button-full button-positive">
+	  	Login
+	  </button>
+	</div>
   </ion-content>
 </ion-view>
