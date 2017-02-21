@@ -3,18 +3,18 @@
     <div class="list">
 	  <label class="item item-input item-stacked-label">
 	    <span class="input-label">Meta mensal:</span>
-	    <input ng-model="monthlyGoal" type="text" placeholder="$99.999">
+	    <input ng-model="monthlyGoal" type="number" placeholder="$99.999" value="05">
 	  </label>
 	  <label class="item item-input item-stacked-label">
 	    <span class="input-label">Quantos dias trabalho no mês:</span>
-	    <input ng-model="workedDays" type="text" placeholder="20">
+	    <input ng-model="workedDays" type="number" placeholder="20">
 	  </label>
 	  <label class="item item-input item-stacked-label">
 		    <span class="input-label">Quantos porcentos de comissão por venda:</span>
 		    <input ng-model="percentageCommission" type="number" placeholder="10">
 	  </label>
 
-	  <button ng-click="SellPerDay(monthlyGoal, workedDays)" class="button button-block button-positive">
+	  <button ng-click="SellPerDay(monthlyGoal, workedDays, percentageCommission, sellPerDay)" class="button button-block button-positive">
 	  	Atualizar dados
 	  </button>
 
@@ -28,7 +28,7 @@
 	<div class="list">
 		  <label class="item item-input item-stacked-label">
 		    <span class="input-label">Valor da venda:</span>
-		    <input ng-model="saleValue" type="number" placeholder="99.99">
+		    <input ng-model="saleValue" type="number">
 		  </label>
 
 	  <button ng-click="SumValues(saleValue, percentageCommission)" class="button button-block button-positive">
