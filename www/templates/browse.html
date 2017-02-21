@@ -1,4 +1,4 @@
-<ion-view view-title="Configuração" ng-controller="PlaylistsCtrl">
+<ion-view view-title="Configuração" ng-controller="AppCtrl">
   <ion-content>
     <div class="list">
 	  <label class="item item-input item-stacked-label">
@@ -9,6 +9,10 @@
 	    <span class="input-label">Quantos dias trabalho no mês:</span>
 	    <input ng-model="workedDays" type="text" placeholder="20">
 	  </label>
+	  <label class="item item-input item-stacked-label">
+		    <span class="input-label">Quantos porcentos de comissão por venda:</span>
+		    <input ng-model="percentageCommission" type="number" placeholder="10">
+	  </label>
 
 	  <button ng-click="SellPerDay(monthlyGoal, workedDays)" class="button button-block button-positive">
 	  	Atualizar dados
@@ -18,14 +22,10 @@
 	  	<h3>Meta de venda por dia: ${{ sellPerDay }}</h3>
 	  </label>
 	  <label class="item item-input item-stacked-label">
-	  	<h3>Meta atual: ${{ goal }}  / {{ monthlyGoal }}</h3>
+	  	<h3>Meta atual: ${{ goalCurrent }}  / {{ monthlyGoal }}</h3>
 	  </label>
 	</div>	
 	<div class="list">
-		<label class="item item-input item-stacked-label">
-		    <span class="input-label">Quantos porcentos de comissão por venda:</span>
-		    <input ng-model="percentageCommission" type="number" placeholder="10">
-	  	</label>
 		  <label class="item item-input item-stacked-label">
 		    <span class="input-label">Valor da venda:</span>
 		    <input ng-model="saleValue" type="number" placeholder="99.99">
