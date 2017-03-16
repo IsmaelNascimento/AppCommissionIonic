@@ -1,0 +1,25 @@
+<ion-view view-title="Metas">
+  <ion-content>
+  	<label class="item item-input item-stacked-label">
+	  	<h3>Meta de venda por dia: ${{ sellPerDay }}</h3>
+	  </label>
+	  <label class="item item-input item-stacked-label">
+	  	<h3>Meta atual: ${{ goalCurrent }}  / {{ monthlyGoal }}</h3>
+	  </label>
+
+	  <div class="list">
+	  <label class="item item-input item-stacked-label">
+	    <span class="input-label">Valor da venda:</span>
+	    <input ng-model="saleValue" type="number">
+	  </label>
+
+	  <button ng-click="SumValues(saleValue, percentageCommission)" class="button button-block button-positive">
+	  	Atualizar meta e comissão
+	  </button>
+
+	  <label class="item item-input item-stacked-label">
+	  	<h3>Comissão no mês: ${{ commissionWon }}</h3>
+	  </label>
+	</div>
+  </ion-content>
+</ion-view>

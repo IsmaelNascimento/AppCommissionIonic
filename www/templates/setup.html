@@ -1,0 +1,22 @@
+<ion-view view-title="Configuração" ng-controller="AppCtrl">
+  <ion-content>
+    <div class="list">
+	  <label class="item item-input item-stacked-label">
+	    <span class="input-label">Meta mensal:</span>
+	    <input ng-model="monthlyGoal" type="number" placeholder="$99.999" value="05">
+	  </label>
+	  <label class="item item-input item-stacked-label">
+	    <span class="input-label">Quantos dias trabalho no mês:</span>
+	    <input ng-model="workedDays" type="number" placeholder="20">
+	  </label>
+	  <label class="item item-input item-stacked-label">
+		    <span class="input-label">Quantos porcentos de comissão por venda:</span>
+		    <input ng-model="percentageCommission" type="number" placeholder="10">
+	  </label>
+
+	  <button ng-click="SellPerDay(monthlyGoal, workedDays, percentageCommission, sellPerDay)" class="button button-block button-positive">
+	  	Atualizar dados
+	  </button>
+	</div>
+  </ion-content>
+</ion-view>

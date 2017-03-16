@@ -21,7 +21,7 @@ angular.module('starter.controllers', [])
   // Save down
   $scope.percentageCommission = $localStorage.percentageCommission;
   // Save down
-  $scope.commissionWon = $localStorage.commissionWon;
+  $scope.commissionWon = $localStorage.commissionWon || 0;
   
   $scope.saleValue = 0;
 
@@ -34,46 +34,46 @@ angular.module('starter.controllers', [])
     $localStorage.percentageCommission = percentageCommission;
     $localStorage.sellPerDay = $scope.sellPerDay;
     
+    //window.location.reload();
   };
 
   $scope.SumValues = function(saleValue, percentageCommission){
-    if(saleValue == undefined){
-      $scope.saleValue = 0;
-    }else{
-      
-      $scope.goalCurrent += saleValue;
+    console.log("commissionWon = " + $localStorage.commissionWon);
+    $scope.goalCurrent += saleValue;
 
-      $scope.commissionWon += (saleValue * percentageCommission) / 100;
+    $scope.commissionWon += (saleValue * percentageCommission) / 100;
 
-      $localStorage.goalCurrent = $scope.goalCurrent;
-      $localStorage.commissionWon = $scope.commissionWon;
-    }
+    $localStorage.goalCurrent = $scope.goalCurrent;
+    $localStorage.commissionWon = $scope.commissionWon;
   };
 
-  // Form data for the login modal
-  $scope.loginData = {};
-
   // Create the login modal that we will use later
-  $ionicModal.fromTemplateUrl('templates/login.html', {
-    scope: $scope
-  }).then(function(modal) {
-    $scope.modal = modal;
-  });
+  $ionicModal.fromTemplateUrl('templates/register.html', {
+      id: '1', // We need to use and ID to identify the modal that is firing the event!
+      scope: $scope,
+      backdropClickToClose: false,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.modal = modal;
+    });  
 
   // Triggered in the login modal to close it
   $scope.closeLogin = function() {
     $scope.modal.hide();
   };
 
-  // Open the login modal
   $scope.login = function() {
+    window.location.reload();
+    console.log("Reload now");
+  };  
+
+  // Open the login modal
+  $scope.register = function() {
     $scope.modal.show();
   };
 
   // Perform the login action when the user submits the login form
   $scope.doLogin = function() {
-    console.log('Doing login', $scope.loginData);
-
     // Simulate a login delay. Remove this and replace with your login
     // code if using a login system
     $timeout(function() {

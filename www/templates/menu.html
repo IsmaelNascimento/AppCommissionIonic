@@ -1,12 +1,11 @@
-<ion-side-menus enable-menu-with-back-views="false" ng-controller="AppCtrl">
-  <ion-side-menu-content>
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content >
     <ion-nav-bar class="bar-stable">
       <ion-nav-back-button>
       </ion-nav-back-button>
 
       <ion-nav-buttons side="left">
-        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
-        </button>
+        <button ng-hide="false" class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
       </ion-nav-buttons>
     </ion-nav-bar>
     <ion-nav-view name="menuContent"></ion-nav-view>
@@ -19,17 +18,14 @@
     <ion-content>
       <ion-list>
         <!--
-        <ion-item menu-close ng-click="login()">
-          Login
-        </ion-item>
-        -->
-        <ion-item menu-close href="#/app/playlists">
+        <ion-item menu-close href="#/app/home">
           Home
         </ion-item>
-        <ion-item menu-close href="#/app/search">
+        -->
+        <ion-item menu-close href="#/app/meta">
           Metas
         </ion-item>
-        <ion-item  menu-close href="#/app/browse">
+        <ion-item  menu-close href="#/app/setup">
           Configurações
         </ion-item>
       </ion-list>
