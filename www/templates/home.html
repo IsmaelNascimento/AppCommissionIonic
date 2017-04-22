@@ -1,16 +1,11 @@
-<ion-view view-title="Login Home">
+<ion-view view-title="Home">
   <ion-content>
-    <div class="list">
-	  <label class="item item-input item-stacked-label">
-	    <span class="input-label">Email</span>
-	    <input type="text" placeholder="mail@mail.com">
-	  </label>
-	  <label class="item item-input item-stacked-label">
-	    <span class="input-label">Password</span>
-	    <input type="text">
-	  </label>
-	  <button ng-click="login()" class="button button-full button-positive">Login</button>
-	  <button ng-click="register()" class="button button-full button-positive">Register</button>
-	</div>
+  <center>
+  	<img src="img/logo-ma.png"> <br/>
+  	<br><br>
+  	<h2>Comissão no mês: <br> ${{ commissionWon }}</h2>
+  	<br><br>
+  	<h2>Meta atual: <br/> ${{ goalCurrent }}  / {{ monthlyGoal }}</h2>
+  </center>
   </ion-content>
 </ion-view>

@@ -5,7 +5,7 @@
       </ion-nav-back-button>
 
       <ion-nav-buttons side="left">
-        <button ng-hide="false" class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+        <button ng-hide="{{ test }}" class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
       </ion-nav-buttons>
     </ion-nav-bar>
     <ion-nav-view name="menuContent"></ion-nav-view>
@@ -17,16 +17,17 @@
     </ion-header-bar>
     <ion-content>
       <ion-list>
-        <!--
         <ion-item menu-close href="#/app/home">
           Home
         </ion-item>
-        -->
-        <ion-item menu-close href="#/app/meta">
+        <ion-item ng-hide="{{test}}" menu-close href="#/app/meta">
           Metas
         </ion-item>
         <ion-item  menu-close href="#/app/setup">
           Configurações
+        </ion-item>
+        <ion-item  menu-close href="#/app/about">
+          Sobre
         </ion-item>
       </ion-list>
     </ion-content>

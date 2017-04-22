@@ -51,6 +51,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngStorage'])
         }
       }
     })
+
+  .state('app.about', {
+      url: '/about',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/about.html',
+          controller: 'AppCtrl'
+        }
+      }
+    })
+
     .state('app.home', {
       url: '/home',
       views: {

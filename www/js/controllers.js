@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout, $localStorage) {
+.controller('AppCtrl', function($scope, $timeout, $localStorage, $ionicPopup) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -11,19 +11,17 @@ angular.module('starter.controllers', [])
 
   // Save down
   //$scope.monthlyGoal = angular.fromJson(window.localStorage['$scope.monthlyGoal'] || '0');
-  $scope.monthlyGoal = $localStorage.monthlyGoal;
+  $scope.monthlyGoal = $localStorage.monthlyGoal || 0;
   // Save down
   $scope.workedDays = $localStorage.workedDays;
   // Save down
-  $scope.sellPerDay = $localStorage.sellPerDay;
+  $scope.sellPerDay = $localStorage.sellPerDay || 0;
   // Save down
   $scope.goalCurrent = $localStorage.goalCurrent || 0;
   // Save down
   $scope.percentageCommission = $localStorage.percentageCommission;
   // Save down
   $scope.commissionWon = $localStorage.commissionWon || 0;
-  
-  $scope.saleValue = 0;
 
 
   $scope.SellPerDay = function(monthlyGoal, workedDays, percentageCommission){
@@ -34,42 +32,58 @@ angular.module('starter.controllers', [])
     $localStorage.percentageCommission = percentageCommission;
     $localStorage.sellPerDay = $scope.sellPerDay;
     
-    //window.location.reload();
+    window.location.reload();
   };
+
+  // An alert dialog
+   var showAlert1 = function() {
+     var alertPopup = $ionicPopup.alert({
+       title: 'Alerta',
+       template: 'Defina o valor da porcemtagem em configurações <br> <a class="button button-block button-positive" href="#/app/setup"> configurações </a>'
+     });
+     alertPopup.then(function(res) {
+       console.log('Thank you for not eating my delicious ice cream cone');
+     });
+   };
+
+   // An alert dialog
+   var showAlert2 = function() {
+     var alertPopup = $ionicPopup.alert({
+       title: 'Alerta',
+       template: 'Defina um valor para a venda'
+     });
+     alertPopup.then(function(res) {
+       console.log('Thank you for not eating my delicious ice cream cone');
+     });
+   };
 
   $scope.SumValues = function(saleValue, percentageCommission){
-    console.log("commissionWon = " + $localStorage.commissionWon);
-    $scope.goalCurrent += saleValue;
+    if(percentageCommission == 0 || percentageCommission == null){
+      showAlert1();
+    }else if(saleValue == null){
+      showAlert2();
+    }else{
+      console.log("commissionWon = " + $localStorage.commissionWon);
+      $scope.goalCurrent += saleValue;
 
-    $scope.commissionWon += (saleValue * percentageCommission) / 100;
+      $scope.commissionWon += (saleValue * percentageCommission) / 100;
 
-    $localStorage.goalCurrent = $scope.goalCurrent;
-    $localStorage.commissionWon = $scope.commissionWon;
+      $localStorage.goalCurrent = $scope.goalCurrent;
+      $localStorage.commissionWon = $scope.commissionWon;
+
+      window.location.reload();
+    }    
+
+    
   };
 
-  // Create the login modal that we will use later
-  $ionicModal.fromTemplateUrl('templates/register.html', {
-      id: '1', // We need to use and ID to identify the modal that is firing the event!
-      scope: $scope,
-      backdropClickToClose: false,
-      animation: 'slide-in-up'
-    }).then(function(modal) {
-      $scope.modal = modal;
-    });  
-
-  // Triggered in the login modal to close it
-  $scope.closeLogin = function() {
-    $scope.modal.hide();
-  };
+  $scope.test = false;
 
   $scope.login = function() {
-    window.location.reload();
+    //window.location.reload();
+    $scope.test = true;
     console.log("Reload now");
-  };  
-
-  // Open the login modal
-  $scope.register = function() {
-    $scope.modal.show();
+    console.log("$scope.test = " + $scope.test);
   };
 
   // Perform the login action when the user submits the login form
@@ -80,4 +94,5 @@ angular.module('starter.controllers', [])
       $scope.closeLogin();
     }, 1000);
   };
+  
 });
